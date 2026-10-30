@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Anderson — SAP Certified Technology Consultant</title>
+<meta name="description" content="SAP Materials Management and Sourcing & Procurement, delivered end to end — from Discovery to Hyper-care. James Anderson, SAP Certified Technology Consultant, Dublin.">
+
+<!-- Replace the og:url / twitter:url value with your GitHub Pages URL once deployed -->
+<meta property="og:title" content="James Anderson — SAP Certified Technology Consultant">
+<meta property="og:description" content="SAP Materials Management and Sourcing & Procurement, delivered end to end — from Discovery to Hyper-care.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://example.github.io/">
+<!-- Add og:image later: 1200x630 PNG matching dark theme -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="James Anderson — SAP Certified Technology Consultant">
+<meta name="twitter:description" content="SAP Materials Management and Sourcing & Procurement, delivered end to end — from Discovery to Hyper-care.">
+<meta name="twitter:url" content="https://example.github.io/">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📦</text></svg>">
+
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #020a18;
+    --bg-grad: linear-gradient(170deg, #020a18 0%, #041028 40%, #06142e 70%, #020a18 100%);
+    --surface: rgba(8,24,56,0.85);
+    --surface-soft: rgba(8,24,56,0.5);
+    --border: rgba(0,170,255,0.12);
+    --border-glow: rgba(0,170,255,0.3);
+    --text: #d0e0f0;
+    --text-bright: #e8f0ff;
+    --text-dim: #6888aa;
+    --neon: #00aaff;
+    --cyan: #00e5ff;
+    --green: #00ff88;
+    --amber: #ffaa00;
+    --red: #ff4466;
+    --purple: #aa66ff;
+    --header-bg: rgba(2,10,24,0.65);
+    --grid-line: rgba(0,170,255,0.03);
+    --orb-opacity: 0.08;
+    --glow: 0 0 14px rgba(0,229,255,0.45);
+    --btn-text: #020a18;
+    --shadow: 0 10px 40px rgba(0,0,0,0.35);
+  }
+
+  html.light {
+    --bg: #f3f7fc;
+    --bg-grad: linear-gradient(170deg, #f6f9fd 0%, #ebf2fb 40%, #e3ecf8 70%, #f6f9fd 100%);
+    --surface: rgba(255,255,255,0.9);
+    --surface-soft: rgba(255,255,255,0.6);
+    --border: rgba(0,90,160,0.14);
+    --border-glow: rgba(0,110,200,0.38);
+    --text: #22324a;
+    --text-bright: #0a1628;
+    --text-dim: #5b6f88;
+    --neon: #0070c9;
+    --cyan: #008fb3;
+    --green: #00885a;
+    --amber: #b06a00;
+    --red: #cf2848;
+    --purple: #7340cc;
+    --header-bg: rgba(246,249,253,0.75);
+    --grid-line: rgba(0,90,160,0.045);
+    --orb-opacity: 0.12;
+    --glow: 0 0 10px rgba(0,143,179,0.25);
+    --btn-text: #ffffff;
+    --shadow: 0 10px 30px rgba(20,50,90,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  a { color: var(--neon); text-decoration: none; transition: color .2s, text-shadow .2s; }
+  a:hover { color: var(--cyan); text-shadow: var(--glow); }
+
+  /* ---------- Background layers ---------- */
+  .bg-gradient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: var(--bg-grad);
+  }
+  .bg-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .bg-orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .orb {
+    position: absolute;
+    width: 440px; height: 440px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: var(--orb-opacity);
+  }
+  .orb-1 { background: var(--neon);   top: 6%;    right: calc(50% + 600px); animation: orbitA 40s linear infinite; }
+  .orb-2 { background: var(--purple); top: 38%;   left:  calc(50% + 600px); animation: orbitB 52s linear infinite; }
+  .orb-3 { background: var(--cyan);   bottom: -8%; right: calc(50% + 640px); animation: orbitA 64s linear infinite reverse; }
+
+  @keyframes orbitA {
+    from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+    to   { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+  }
+  @keyframes orbitB {
+    from { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+    to   { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+  }
+
+  .page { position: relative; z-index: 1; }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--header-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    font-weight: 700; font-size: 17px; letter-spacing: -0.01em;
+    color: var(--text-bright);
+  }
+  .brand:hover { color: var(--text-bright); text-shadow: none; }
+  .header-actions { display: flex; gap: 8px; }
+  .icon-btn {
+    width: 40px; height: 40px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color .2s, color .2s, box-shadow .2s;
+  }
+  .icon-btn:hover { border-color: var(--border-glow); color: var(--cyan); box-shadow: var(--glow); }
+  .icon-btn:focus-visible { outline: 2px solid var(--neon); outline-offset: 2px; }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .icon-sun { display: none; }
+  html.light .icon-sun { display: block; }
+  html.light .icon-moon { display: none; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 96px 0 72px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+  .hero-eyebrow .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: clamp(42px, 8vw, 72px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--text-bright);
+  }
+  .hero-role {
+    margin: 16px 0 0;
+    font-size: clamp(16px, 2.4vw, 19px);
+    font-weight: 600;
+    color: var(--neon);
+  }
+  .hero-line {
+    margin: 32px 0 0;
+    max-width: 720px;
+    font-size: clamp(22px, 3.6vw, 30px);
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    color: var(--text-bright);
+  }
+  .hero-line .accent { color: var(--cyan); }
+  .hero-cta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: 600; font-size: 15px;
+    color: var(--btn-text);
+    background: linear-gradient(135deg, var(--neon), var(--cyan));
+    box-shadow: 0 6px 24px rgba(0,170,255,0.3);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary:hover {
+    color: var(--btn-text);
+    text-shadow: none;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(0,229,255,0.4);
+  }
+  .btn-primary svg { width: 16px; height: 16px; }
+  .hero-meta { font-size: 14px; color: var(--text-dim); }
+
+  /* ---------- Sections ---------- */
+  .sections { display: flex; flex-direction: column; gap: 16px; padding-bottom: 80px; }
+  .sec {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: border-color .25s;
+  }
+  .sec:hover { border-color: var(--border-glow); }
+  .sec-head {
+    width: 100%;
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 22px;
+    background: none; border: none;
+    font: inherit; color: inherit; text-align: left;
+    cursor: pointer;
+    border-radius: 16px;
+  }
+  .sec-head:focus-visible { outline: 2px solid var(--neon); outline-offset: -2px; }
+  .sec-num {
+    flex: 0 0 auto;
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    border: 1.5px solid var(--neon);
+    color: var(--neon);
+    font-size: 14px; font-weight: 700;
+    box-shadow: 0 0 12px rgba(0,170,255,0.18);
+  }
+  .sec-title {
+    flex: 1;
+    font-size: 19px; font-weight: 700; letter-spacing: -0.01em;
+    color: var(--text-bright);
+  }
+  .sec-toggle {
+    position: relative;
+    width: 18px; height: 18px;
+    flex: 0 0 auto;
+    color: var(--text-dim);
+  }
+  .sec-toggle::before, .sec-toggle::after {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    background: currentColor; border-radius: 2px;
+    transition: transform .3s ease;
+  }
+  .sec-toggle::before { width: 14px; height: 2px; transform: translate(-50%, -50%); }
+  .sec-toggle::after  { width: 2px; height: 14px; transform: translate(-50%, -50%) scaleY(0); }
+  .sec.closed .sec-toggle::after { transform: translate(-50%, -50%) scaleY(1); }
+  .sec-head:hover .sec-toggle { color: var(--cyan); }
+
+  .sec-body {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows .35s ease;
+  }
+  .sec.closed .sec-body { grid-template-rows: 0fr; }
+  .sec-inner { overflow: hidden; }
+  .sec-content {
+    padding: 0 22px 24px 72px;
+    transition: opacity .3s ease;
+  }
+  .sec.closed .sec-content { opacity: 0; }
+
+  .sec-content p { margin: 0 0 14px; }
+  .sec-content p:last-child { margin-bottom: 0; }
+
+  .label {
+    margin: 22px 0 10px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .label:first-child { margin-top: 0; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 6px 12px;
+    font-size: 13.5px; font-weight: 500;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
+    color: var(--text);
+  }
+  .chip.hl { border-color: var(--border-glow); color: var(--neon); }
+
+  .bullets { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .bullets li { position: relative; padding-left: 22px; }
+  .bullets li::before {
+    content: ""; position: absolute; left: 2px; top: 10px;
+    width: 8px; height: 8px; border-radius: 2px;
+    background: var(--green);
+    box-shadow: 0 0 8px rgba(0,255,136,0.4);
+    transform: rotate(45deg);
+  }
+
+  /* Lifecycle */
+  .lifecycle { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .phase {
+    padding: 8px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border-glow);
+    background: var(--surface-soft);
+    font-size: 14px; font-weight: 600;
+    color: var(--text-bright);
+  }
+  .phase:nth-child(1) { color: var(--neon); }
+  .phase:nth-child(3) { color: var(--cyan); }
+  .phase:nth-child(5) { color: var(--purple); }
+  .phase:nth-child(7) { color: var(--green); }
+  .phase:nth-child(9) { color: var(--amber); }
+  .arrow { color: var(--text-dim); font-size: 14px; }
+
+  /* Timeline */
+  .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px;
+    width: 1px; background: var(--border-glow);
+  }
+  .tl-item { position: relative; padding: 0 0 22px 28px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: 0; top: 7px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--neon);
+  }
+  .tl-item:first-child::before { border-color: var(--green); box-shadow: 0 0 10px var(--green); }
+  .tl-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; }
+  .tl-role { font-weight: 600; color: var(--text-bright); }
+  .tl-date { font-size: 13.5px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .tl-org { font-size: 14.5px; color: var(--neon); font-weight: 500; }
+  .tl-desc { margin-top: 4px; font-size: 14.5px; color: var(--text-dim); }
+
+  /* Cards */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  .card {
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
+  }
+  .card-title { font-weight: 600; color: var(--text-bright); font-size: 15px; line-height: 1.45; }
+  .card-sub { margin-top: 6px; font-size: 13.5px; color: var(--text-dim); }
+  .card.cert { border-color: var(--border-glow); }
+  .card.cert .badge {
+    display: inline-block; margin-bottom: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--green);
+  }
+
+  /* Contact */
+  .contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .contact-list li { display: flex; align-items: center; gap: 12px; }
+  .contact-list svg { width: 18px; height: 18px; color: var(--text-dim); flex: 0 0 auto; }
+
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0 36px;
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+  .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 64px 0 52px; }
+    .sec-head { padding: 18px 16px; gap: 12px; }
+    .sec-content { padding: 0 16px 20px 16px; }
+    .sec-title { font-size: 17px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-gradient" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-orbs" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<div class="page">
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">James Anderson</a>
+      <div class="header-actions">
+        <button class="icon-btn" id="themeToggle" type="button" title="Switch to light mode" aria-label="Toggle colour theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="icon-btn" id="collapseToggle" type="button" title="Collapse all sections" aria-label="Collapse or expand all sections">
+          <svg id="collapseIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20l5-5 5 5M7 4l5 5 5-5"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+
+    <section class="hero">
+      <div class="hero-eyebrow"><span class="dot"></span>Dublin, Ireland</div>
+      <h1>James Anderson</h1>
+      <p class="hero-role">SAP Certified Technology Consultant · Materials Management (MM), Sourcing &amp; Procurement</p>
+      <p class="hero-line">SAP Materials Management and Sourcing &amp; Procurement, delivered end to end — <span class="accent">from Discovery to Hyper-care.</span></p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="mailto:jamesnah@gmail.com?subject=SAP%20consulting%20enquiry">
+          Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <span class="hero-meta">jamesnah@gmail.com</span>
+      </div>
+    </section>
+
+    <div class="sections">
+
+      <!-- 1 -->
+      <section class="sec" id="what-i-do">
+        <button class="sec-head" type="button" aria-expanded="true" aria-controls="body-1">
+          <span class="sec-num">1</span>
+          <span class="sec-title">What I do</span>
+          <span class="sec-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="sec-body" id="body-1">
+          <div class="sec-inner">
+            <div class="sec-content">
+              <p>SAP Certified Technology Consultant with hands-on experience in SAP implementations, especially Materials Management (MM), Sourcing &amp; Procurement — building on a background in technical support, software development and enterprise IT solutions for global organisations.</p>
+              <div class="label">Specialisms</div>
+              <div class="chips">
+                <span class="chip hl">Materials Management (MM)</span>
+                <span class="chip hl">Sourcing &amp; Procurement</span>
+                <span class="chip">Suppliers &amp; Business Partners Management</span>
+                <span class="chip">Change Management</span>
+                <span class="chip">Change Requests</span>
+                <span class="chip">SAP Logistics</span>
+                <span class="chip">Logistics Management</span>
+              </div>
+              <div class="label">Signature work</div>
+              <ul class="bullets">
+                <li>SAP Application Consultant at SAP (April 2024 – March 2026)</li>
+                <li>SAP Certified Application Associate — SAP S/4HANA Cloud Sourcing &amp; Procurement Implementation, and SAP S/4HANA Sourcing and Procurement</li>
+                <li>End-to-end SAP implementation lifecycle (Discovery → Design → Build → Go-Live → Hyper-care), building on enterprise IT work for SAP, Gateway, Motorola and Celestica</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="sec" id="how-i-work">
+        <button class="sec-head" type="button" aria-expanded="true" aria-controls="body-2">
+          <span class="sec-num">2</span>
+          <span class="sec-title">How I work</span>
+          <span class="sec-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="sec-body" id="body-2">
+          <div class="sec-inner">
+            <div class="sec-content">
+              <div class="label">Implementation lifecycle</div>
+              <div class="lifecycle">
+                <span class="phase">Discovery</span><span class="arrow">→</span>
+                <span class="phase">Design</span><span class="arrow">→</span>
+                <span class="phase">Build</span><span class="arrow">→</span>
+                <span class="phase">Go-Live</span><span class="arrow">→</span>
+                <span class="phase">Hyper-care</span>
+              </div>
+              <div class="label">Delivery frameworks</div>
+              <div class="chips">
+                <span class="chip">Waterfall</span>
+                <span class="chip">Agile / DevOps</span>
+                <span class="chip">SAP ASAP &amp; Activate</span>
+                <span class="chip">SDLC</span>
+                <span class="chip">SAP Cloud ALM</span>
+                <span class="chip">Jira</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="sec" id="experience">
+        <button class="sec-head" type="button" aria-expanded="true" aria-controls="body-3">
+          <span class="sec-num">3</span>
+          <span class="sec-title">Experience</span>
+          <span class="sec-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="sec-body" id="body-3">
+          <div class="sec-inner">
+            <div class="sec-content">
+              <ol class="timeline">
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">SAP Application Consultant</span><span class="tl-date">Apr 2024 – Mar 2026</span></div>
+                  <div class="tl-org">SAP</div>
+                  <div class="tl-desc">IT Contractor – Application Consultant</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">IT Contractor – ICT Engineer</span><span class="tl-date">Apr 2020 – Mar 2024</span></div>
+                  <div class="tl-org">Primtac Ltd</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">Business &amp; Telecom System Development and Management</span><span class="tl-date">May 2015 – Apr 2020</span></div>
+                  <div class="tl-org">Yappingo</div>
+                  <div class="tl-desc">Telecom Carrier Interconnect Provider for Voice &amp; SMS Services</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">IT Consultant</span><span class="tl-date">Feb 2010 – May 2015</span></div>
+                  <div class="tl-org">Yabbtel — Telecommunication / Software Development</div>
+                  <div class="tl-desc">IT &amp; Telecom consultation including software development and deployment, database management, web services, middleware implementation and application development</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">Information Technology System Engineer</span><span class="tl-date">Sep 2003 – Feb 2010</span></div>
+                  <div class="tl-org">Pegas 2000</div>
+                  <div class="tl-desc">IT Sales, Networking &amp; Maintenance</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">Technician</span><span class="tl-date">Apr 2002 – Sep 2003</span></div>
+                  <div class="tl-org">Celestica Ireland</div>
+                  <div class="tl-desc">Analysed and repaired PCB boards for pagers and mobile phones according to manufacturer specifications</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">Technical Support Representative</span><span class="tl-date">Jan 2000 – Jan 2002</span></div>
+                  <div class="tl-org">Gateway Computers LLC</div>
+                  <div class="tl-desc">First- and second-line support for Windows and Microsoft Office; diagnosed and resolved hardware and software faults via phone, email and remote desktop tools</div>
+                </li>
+                <li class="tl-item">
+                  <div class="tl-top"><span class="tl-role">Electronic Technician</span><span class="tl-date">Jan 1999 – Jan 2000</span></div>
+                  <div class="tl-org">Motorola BV</div>
+                  <div class="tl-desc">Tested and repaired PCB and flex boards for mobile phones</div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="sec" id="certifications">
+        <button class="sec-head" type="button" aria-expanded="true" aria-controls="body-4">
+          <span class="sec-num">4</span>
+          <span class="sec-title">Certifications &amp; education</span>
+          <span class="sec-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="sec-body" id="body-4">
+          <div class="sec-inner">
+            <div class="sec-content">
+              <div class="label">Certifications</div>
+              <div class="cards">
+                <div class="card cert">
+                  <span class="badge">SAP Certified</span>
+                  <div class="card-title">Application Associate — SAP S/4HANA Cloud: Sourcing &amp; Procurement Implementation</div>
+                </div>
+                <div class="card cert">
+                  <span class="badge">SAP Certified</span>
+                  <div class="card-title">Application Associate — SAP S/4HANA Sourcing and Procurement</div>
+                </div>
+                <div class="card">
+                  <div class="card-title">Professional Certificate, SAP Technology Consultant</div>
+                  <div class="card-sub">Coursera · Oct 2024 – Jan 2025</div>
+                </div>
+              </div>
+              <div class="label">Education</div>
+              <div class="cards">
+                <div class="card">
+                  <div class="card-title">Master’s Degree, Data Analytics</div>
+                  <div class="card-sub">National College of Ireland · 2016 – 2017</div>
+                </div>
+                <div class="card">
+                  <div class="card-title">Bachelor’s Degree, Computer Software Engineering</div>
+                  <div class="card-sub">National College of Ireland · 2013 – 2014</div>
+                </div>
+                <div class="card">
+                  <div class="card-title">Computer Systems Networking and Telecommunications</div>
+                  <div class="card-sub">ITTD Dublin · 2007 – 2008</div>
+                </div>
+                <div class="card">
+                  <div class="card-title">BTech, Telecommunications Engineering</div>
+                  <div class="card-sub">DIT Dublin · 1997 – 1998</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="sec" id="contact">
+        <button class="sec-head" type="button" aria-expanded="true" aria-controls="body-5">
+          <span class="sec-num">5</span>
+          <span class="sec-title">Get in touch</span>
+          <span class="sec-toggle" aria-hidden="true"></span>
+        </button>
+        <div class="sec-body" id="body-5">
+          <div class="sec-inner">
+            <div class="sec-content">
+              <p>Looking for support with SAP Materials Management or Sourcing &amp; Procurement? Get in touch.</p>
+              <ul class="contact-list">
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                  <a href="mailto:jamesnah@gmail.com?subject=SAP%20consulting%20enquiry">jamesnah@gmail.com</a>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+                  <a href="https://www.linkedin.com/in/janderson16" target="_blank" rel="noopener">linkedin.com/in/janderson16</a>
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                  <span>Dublin, County Dublin, Ireland</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> James Anderson</span>
+      <span>Built with the AI Badge</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle
+    var themeBtn = document.getElementById('themeToggle');
+    function syncThemeTitle() {
+      themeBtn.title = root.classList.contains('light') ? 'Switch to dark mode' : 'Switch to light mode';
+    }
+    syncThemeTitle();
+    themeBtn.addEventListener('click', function () {
+      var isLight = root.classList.toggle('light');
+      try { localStorage.setItem('theme', isLight ? 'light' : 'dark'); } catch (e) {}
+      syncThemeTitle();
+    });
+
+    // Sections
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.sec'));
+    var collapseBtn = document.getElementById('collapseToggle');
+    var collapseIcon = document.getElementById('collapseIcon');
+    var ICON_COLLAPSE = '<path d="M7 20l5-5 5 5M7 4l5 5 5-5"/>';
+    var ICON_EXPAND = '<path d="M7 15l5 5 5-5M7 9l5-5 5 5"/>';
+
+    function setOpen(sec, open) {
+      sec.classList.toggle('closed', !open);
+      sec.querySelector('.sec-head').setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    function syncCollapseBtn() {
+      var anyOpen = sections.some(function (s) { return !s.classList.contains('closed'); });
+      collapseBtn.title = anyOpen ? 'Collapse all sections' : 'Expand all sections';
+      collapseIcon.innerHTML = anyOpen ? ICON_COLLAPSE : ICON_EXPAND;
+    }
+
+    sections.forEach(function (sec) {
+      sec.querySelector('.sec-head').addEventListener('click', function () {
+        setOpen(sec, sec.classList.contains('closed'));
+        syncCollapseBtn();
+      });
+    });
+
+    collapseBtn.addEventListener('click', function () {
+      var anyOpen = sections.some(function (s) { return !s.classList.contains('closed'); });
+      sections.forEach(function (s) { setOpen(s, !anyOpen); });
+      syncCollapseBtn();
+    });
+
+    syncCollapseBtn();
+  })();
+</script>
+</body>
+</html>
